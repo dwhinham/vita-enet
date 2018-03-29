@@ -424,7 +424,8 @@ enet_socket_receive (ENetSocket socket,
         return -1;
     }
 
-#ifdef HAS_MSGHDR_FLAGS
+    /* TODO: Check there's no MSG_TRUNC equivalent for Vita */
+#if 0
     if (msgHdr.msg_flags & MSG_TRUNC)
       return -1;
 #endif

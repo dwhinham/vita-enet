@@ -77,9 +77,19 @@ set(SOURCE_FILES
     list.c
     packet.c
     peer.c
-    protocol.c
-    unix.c
-    win32.c)
+    protocol.c)
+
+if(UNIX)
+    list(APPEND SOURCE_FILES unix.c)
+endif()
+
+if(WIN32)
+    list(APPEND SOURCE_FILES win32.c)
+endif()
+
+if(VITA)
+    list(APPEND SOURCE_FILES vita.c)
+endif()
 
 source_group(include FILES ${INCLUDE_FILES})
 source_group(source FILES ${SOURCE_FILES})
